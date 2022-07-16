@@ -63,9 +63,10 @@
     <Compile Include="Assets\Scripts\DiceCheck.cs" />
     <Compile Include="Assets\Scripts\AudioManager.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
+    <Compile Include="Assets\Scripts\ResetLevel.cs" />
     <Compile Include="Assets\Scripts\WallRunning.cs" />
     <Compile Include="Assets\Scripts\LevelSelector.cs" />
-    <Compile Include="Assets\ResetLevel.cs" />
+    <Compile Include="Assets\MainMenu.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
