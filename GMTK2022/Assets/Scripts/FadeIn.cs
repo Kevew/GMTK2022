@@ -21,7 +21,7 @@ public class FadeIn : MonoBehaviour
         anim.gameObject.SetActive(true);
         normalTime.text = "Time: " + endTime.ToString();
         PlayerPrefs.SetFloat(SceneManager.GetActiveScene().name, Mathf.Min(PlayerPrefs.GetFloat(SceneManager.GetActiveScene().name),endTime));
-        bestTime.text = "Time: " + PlayerPrefs.GetFloat(SceneManager.GetActiveScene().name).ToString();
+        bestTime.text = "Best Time: " + PlayerPrefs.GetFloat(SceneManager.GetActiveScene().name).ToString();
     }
 
 
@@ -31,11 +31,13 @@ public class FadeIn : MonoBehaviour
     }
     public void Exit()
     {
-        SceneManager.LoadScene("LevelSelector");
+        SceneManager.LoadScene("LevelSelect");
     }
 
     public void NextLevel()
     {
-        string curr = SceneManager.GetActiveScene().name.Substring(5,2);
+        int curr = int.Parse(SceneManager.GetActiveScene().name.Substring(5,2));
+        curr++;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
