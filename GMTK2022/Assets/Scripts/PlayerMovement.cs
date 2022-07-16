@@ -1,5 +1,5 @@
 // Some stupid rigidbody based movement by Dani
-
+using System.Collections.Generic;
 using System;
 using UnityEngine;
 
@@ -49,6 +49,8 @@ public class PlayerMovement : MonoBehaviour
 
     public ParticleSystem jumpSystem;
 
+    public List<float> speedList;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -61,7 +63,10 @@ public class PlayerMovement : MonoBehaviour
         Cursor.visible = false;
     }
 
-
+    public void changeSpeed(int changeValue)
+    {
+        moveSpeed = speedList[changeValue];
+    }
 
     private void FixedUpdate()
     {

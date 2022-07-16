@@ -10,6 +10,8 @@ public class FinishLevel : MonoBehaviour
         if(collision.transform.tag == "Player")
         {
             PlayerPrefs.SetInt("levelReached", int.Parse(SceneManager.GetActiveScene().name.Substring(5,2))+1);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             SceneManager.LoadScene("LevelSelect");
         }
     }
