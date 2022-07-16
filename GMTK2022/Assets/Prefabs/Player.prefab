@@ -5184,6 +5184,7 @@ MonoBehaviour:
   - 4000
   - 4500
   - 5000
+  movementStart: 0
 --- !u!114 &5822977013102820701
 MonoBehaviour:
   m_ObjectHideFlags: 0
