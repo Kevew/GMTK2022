@@ -67,17 +67,21 @@ public class PlayerMovement : MonoBehaviour
     {
         if(speedList[changeValue] > moveSpeed)
         {
-            StartCoroutine(speedup());
+            StartCoroutine(speedup(90f,80f));
+        }
+        else if(speedList[changeValue] > moveSpeed)
+        {
+            StartCoroutine(speedup(70f, 80f));
         }
         moveSpeed = speedList[changeValue];
     }
 
-    private IEnumerator speedup()
+    private IEnumerator speedup(float speedone, float speedtwo)
     {
         WallRunning w = GetComponent<WallRunning>();
-        w.DoFov(90);
+        w.DoFov(speedone);
         yield return new WaitForSeconds(1f);
-        w.DoFov(80);
+        w.DoFov(speedtwo);
     }
 
     private void FixedUpdate()
@@ -91,6 +95,8 @@ public class PlayerMovement : MonoBehaviour
         Look();
     }
 
+    public bool movementStart = false;
+
     /// <summary>
     /// Find user input. Should put this in its own class but im lazy
     /// </summary>
@@ -100,6 +106,10 @@ public class PlayerMovement : MonoBehaviour
         y = Input.GetAxisRaw("Vertical");
         jumping = Input.GetButton("Jump");
         crouching = Input.GetKey(KeyCode.LeftShift);
+        if(x != 0 || y != 0)
+        {
+            movementStart = true;
+        }
 
         //Crouching
         if (Input.GetKeyDown(KeyCode.LeftShift))

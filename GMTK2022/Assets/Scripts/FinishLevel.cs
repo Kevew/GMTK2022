@@ -5,14 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class FinishLevel : MonoBehaviour
 {
-    void OnCollisionEnter(Collision collision)
+    public FadeIn fade;
+
+    void OnTriggerEnter(Collider collision)
     {
         if(collision.transform.tag == "Player")
         {
-            PlayerPrefs.SetInt("levelReached", int.Parse(SceneManager.GetActiveScene().name.Substring(5,2))+1);
+            PlayerPrefs.SetInt("levelReached", Mathf.Max(int.Parse(SceneManager.GetActiveScene().name.Substring(5,2))+1, PlayerPrefs.GetInt("levelReached")));
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-            SceneManager.LoadScene("LevelSelect");
+            fade.startEnd("LevelSelect");
         }
     }
 }
