@@ -56,6 +56,6 @@ Material:
     - _QueueOffset: 0
     m_Colors:
     - _Color: {r: 0.8540741, g: 0.8540741, b: 0.8540741, a: 0}
-    - _ColorValue: {r: 1.4980392, g: 0.6431373, b: 0, a: 0}
+    - _ColorValue: {r: 2, g: 2, b: 2, a: 0}
     - _FadeValues: {r: 0.4, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
