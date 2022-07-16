@@ -8,10 +8,42 @@ public class DiceCheck : MonoBehaviour
 
     public ParticleSystem pS;
 
+    private Material shaderMat;
 
+    [Header("Flashing Effects")]
+    bool isFlashing = false;
+    public float intensity = 2f;
+    public float maxIntensity = 25f;
+
+    Color normalColor;
     private void Start()
     {
+        shaderMat = GetComponent<MeshRenderer>().material;
         scale = transform.localScale.x/2;
+        normalColor = shaderMat.GetColor("_ColorValue");
+    }
+
+
+    private void FixedUpdate()
+    {
+        if (isFlashing)
+        {
+            intensity += Time.deltaTime * maxIntensity;
+            if (intensity >= maxIntensity)
+            {
+                isFlashing = false;
+            }
+            
+            shaderMat.SetColor("_ColorValue", normalColor * intensity);
+        }
+        if (!isFlashing)
+        {
+            if (intensity > 2f)
+            {
+                intensity -= Time.deltaTime * maxIntensity / 2;
+                shaderMat.SetColor("_ColorValue", normalColor * intensity);
+            }
+        }
     }
     public void OnCollisionEnter(Collision collision)
     {
@@ -37,7 +69,7 @@ public class DiceCheck : MonoBehaviour
                     changeSpeedValue = i + 1;
                 }
             }
-
+            isFlashing = true;
 
             collision.gameObject.GetComponent<PlayerMovement>().changeSpeed(changeSpeedValue);
         }

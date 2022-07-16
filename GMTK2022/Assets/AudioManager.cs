@@ -14,7 +14,6 @@ public class AudioManager : MonoBehaviour
     {
         currsong = 0f;
         audioPlay = GetComponent<AudioSource>();
-        songlength = audioPlay.clip.length;
         realSuffle();
     }
 

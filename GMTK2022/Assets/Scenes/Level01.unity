@@ -406,7 +406,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29f8578bb0c78d34dabfd60514ccebc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shuffle: []
+  shuffle:
+  - {fileID: 8300000, guid: 724df10944629e043b3584ebeeab2434, type: 3}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
