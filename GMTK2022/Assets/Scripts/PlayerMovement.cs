@@ -61,23 +61,10 @@ public class PlayerMovement : MonoBehaviour
         Cursor.visible = false;
     }
 
-    public Transform groundCheck;
 
 
     private void FixedUpdate()
     {
-        if(Physics.CheckSphere(groundCheck.position, 0.4f, whatIsGround))
-        {
-            if (!grounded)
-            {
-                jumpSystem.Play();
-            }
-            grounded = true;
-        }
-        else
-        {
-            grounded = false;
-        }
         Movement();
     }
 
