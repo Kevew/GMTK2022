@@ -1,3 +1,2 @@
 # GMTK2022
-haha ur _ _ _
-
+Team name: Clowns
