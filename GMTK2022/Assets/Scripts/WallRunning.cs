@@ -41,6 +41,7 @@ public class WallRunning : MonoBehaviour
     private Rigidbody rb;
 
     public Camera cam;
+    public Transform camTransform;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -181,5 +182,6 @@ public class WallRunning : MonoBehaviour
     public void DoTilt(float zTilt)
     {
         transform.DOLocalRotate(new Vector3(0, 0, zTilt), 0.25f);
+        camTransform.DOLocalRotate(new Vector3(0, 0, zTilt), 0.25f);
     }
 }

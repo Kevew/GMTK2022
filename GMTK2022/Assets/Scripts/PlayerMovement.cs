@@ -47,6 +47,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 normalVector = Vector3.up;
     private Vector3 wallNormalVector;
 
+    public ParticleSystem jumpSystem;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -59,9 +61,23 @@ public class PlayerMovement : MonoBehaviour
         Cursor.visible = false;
     }
 
+    public Transform groundCheck;
+
 
     private void FixedUpdate()
     {
+        if(Physics.CheckSphere(groundCheck.position, 0.4f, whatIsGround))
+        {
+            if (!grounded)
+            {
+                jumpSystem.Play();
+            }
+            grounded = true;
+        }
+        else
+        {
+            grounded = false;
+        }
         Movement();
     }
 
@@ -160,6 +176,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (grounded && readyToJump)
         {
+            rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
             readyToJump = false;
 
             //Add jump forces
