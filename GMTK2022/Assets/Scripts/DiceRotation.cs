@@ -5,9 +5,13 @@ using UnityEngine;
 public class DiceRotation : MonoBehaviour
 {
 
-    public float yaw;
-    public float pitch;
-    public float zRot;
+    public float Startingyaw;
+    public float Startingpitch;
+    public float StartingzRot;
+
+    private float yaw;
+    private float pitch;
+    private float zRot;
 
     float yawChange = 0f;
     float pitchChange = 0f;
@@ -20,9 +24,23 @@ public class DiceRotation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        resetRot();
         randomYaw = Random.Range(-RandomRangeValue, RandomRangeValue);
         randomPitch = Random.Range(-RandomRangeValue, RandomRangeValue);
         randomZ = Random.Range(-RandomRangeValue, RandomRangeValue);
+    }
+
+    public void resetRot()
+    {
+        yawChange = 0f;
+        pitchChange = 0f;
+        zChange = 0f;
+        yaw = Startingyaw;
+        pitch = Startingpitch;
+        zRot = StartingzRot;
+        randomYaw = 0f;
+        randomPitch = 0f;
+        randomZ = 0f;
     }
 
     // Update is called once per frame
@@ -90,7 +108,7 @@ public class DiceRotation : MonoBehaviour
 
     void newRotate()
     {
-       randomYaw = Random.Range(-RandomRangeValue, RandomRangeValue);
+        randomYaw = Random.Range(-RandomRangeValue, RandomRangeValue);
         randomPitch = Random.Range(-RandomRangeValue, RandomRangeValue);
         randomZ = Random.Range(-RandomRangeValue, RandomRangeValue);
     }

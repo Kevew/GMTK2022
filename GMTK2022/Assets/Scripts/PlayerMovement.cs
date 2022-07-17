@@ -119,10 +119,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (crouching)
         {
-            if (inEndless)
-            {
-                rb.AddForce(-transform.up * forceDownGravity * 2f);
-            }
+             rb.AddForce(-transform.up * forceDownGravity * 2f);
         }
         if (!inEndless)
         {

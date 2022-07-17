@@ -24,6 +24,16 @@ public class ResetLevel : MonoBehaviour
             player.movementStart = false;
             currTime = 0f;
             anim.SetTrigger("StartAnim");
+            callReset();
+        }
+    }
+
+    void callReset()
+    {
+        GameObject[] rot = GameObject.FindGameObjectsWithTag("Wall");
+        foreach (GameObject a in rot)
+        {
+            a.GetComponent<DiceRotation>().resetRot();
         }
     }
 
