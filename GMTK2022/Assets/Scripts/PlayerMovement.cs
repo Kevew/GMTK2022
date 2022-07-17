@@ -169,6 +169,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void StartCrouch()
     {
+        movementStart = true;
         transform.localScale = crouchScale;
         transform.position = new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z);
         if (rb.velocity.magnitude > 0.5f)
@@ -182,12 +183,14 @@ public class PlayerMovement : MonoBehaviour
 
     private void StopCrouch()
     {
+        movementStart = true;
         transform.localScale = playerScale;
         transform.position = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z);
     }
 
     private void Movement()
     {
+        movementStart = true;
         //Extra gravity
         rb.AddForce(Vector3.down * Time.deltaTime * 10);
 
@@ -237,6 +240,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
+        movementStart = true;
         if (grounded && readyToJump)
         {
             rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
@@ -265,6 +269,7 @@ public class PlayerMovement : MonoBehaviour
     private float desiredX;
     private void Look()
     {
+        movementStart = true;
         float mouseX = Input.GetAxis("Mouse X") * sensitivity * Time.fixedDeltaTime * sensMultiplier;
         float mouseY = Input.GetAxis("Mouse Y") * sensitivity * Time.fixedDeltaTime * sensMultiplier;
 
@@ -283,6 +288,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void CounterMovement(float x, float y, Vector2 mag)
     {
+        movementStart = true;
         if (!grounded || jumping) return;
 
         //Slow down sliding
@@ -318,6 +324,7 @@ public class PlayerMovement : MonoBehaviour
     /// <returns></returns>
     public Vector2 FindVelRelativeToLook()
     {
+        movementStart = true;
         float lookAngle = orientation.transform.eulerAngles.y;
         float moveAngle = Mathf.Atan2(rb.velocity.x, rb.velocity.z) * Mathf.Rad2Deg;
 

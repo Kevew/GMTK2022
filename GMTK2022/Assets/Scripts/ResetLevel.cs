@@ -33,12 +33,11 @@ public class ResetLevel : MonoBehaviour
         GameObject[] rot = GameObject.FindGameObjectsWithTag("Wall");
         foreach (GameObject a in rot)
         {
-            Debug.Log(a.name);
             a.GetComponent<DiceRotation>().resetRot();
         }
     }
 
-    private void Start()
+    private void Awake()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
         gui.text = SceneManager.GetActiveScene().name;

@@ -14,7 +14,7 @@ public class FinishLevel : MonoBehaviour
             PlayerPrefs.SetInt("levelReached", Mathf.Max(int.Parse(SceneManager.GetActiveScene().name.Substring(5,2))+1, PlayerPrefs.GetInt("levelReached")));
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-            fade.startEnd("LevelSelect");
+            fade.startEnd();
             collision.transform.position = GameObject.FindGameObjectWithTag("GameManager").GetComponent<ResetLevel>().resetPosition;
         }
     }

@@ -52,6 +52,10 @@ public class LevelSelector : MonoBehaviour
             {
                 check += (i+1).ToString();
             }
+            if (!PlayerPrefs.HasKey(check))
+            {
+                PlayerPrefs.SetFloat(check, 99999f);
+            }
             float temp = PlayerPrefs.GetFloat(check, 99999f);
             string textTemp = System.Math.Round(temp, 3).ToString();
             if(temp == 99999f)
@@ -63,11 +67,12 @@ public class LevelSelector : MonoBehaviour
     }
     public void Select(string levelSelect)
     {
-        SceneManager.LoadScene(levelSelect);
+        int temp = int.Parse(levelSelect.Substring(5, 2));
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + temp);
     }
 
     public void PlayEndless()
     {
-        SceneManager.LoadScene("Endless");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 7);
     }
 }

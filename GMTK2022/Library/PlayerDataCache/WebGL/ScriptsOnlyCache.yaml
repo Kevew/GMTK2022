@@ -1290,8 +1290,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 83
       Script: {instanceID: 0}
-    - Class: 89
-      Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 108
@@ -2814,4 +2812,4 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Level05.unity
   - Assets/Scenes/Level06.unity
   - Assets/Scenes/Endless.unity
-  playerPath: C:/Users/wei00/Documents/Tet
+  playerPath: C:/Users/wei00/Documents/LastBuild

@@ -2822,6 +2822,10 @@ void RegisterAllStrippedInternalCalls()
 
 	//Start Registrations for type : UnityEngine.PlayerPrefs
 
+		//System.Boolean UnityEngine.PlayerPrefs::HasKey(System.String)
+		void Register_UnityEngine_PlayerPrefs_HasKey();
+		Register_UnityEngine_PlayerPrefs_HasKey();
+
 		//System.Boolean UnityEngine.PlayerPrefs::TrySetFloat(System.String,System.Single)
 		void Register_UnityEngine_PlayerPrefs_TrySetFloat();
 		Register_UnityEngine_PlayerPrefs_TrySetFloat();
@@ -2837,6 +2841,10 @@ void RegisterAllStrippedInternalCalls()
 		//System.Single UnityEngine.PlayerPrefs::GetFloat(System.String,System.Single)
 		void Register_UnityEngine_PlayerPrefs_GetFloat();
 		Register_UnityEngine_PlayerPrefs_GetFloat();
+
+		//System.Void UnityEngine.PlayerPrefs::Save()
+		void Register_UnityEngine_PlayerPrefs_Save();
+		Register_UnityEngine_PlayerPrefs_Save();
 
 	//End Registrations for type : UnityEngine.PlayerPrefs
 

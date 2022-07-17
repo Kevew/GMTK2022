@@ -15,13 +15,14 @@ public class FadeIn : MonoBehaviour
         anim.gameObject.SetActive(false);
     }
 
-    public void startEnd(string a)
+    public void startEnd()
     {
         float endTime = resetInfo.currTime;
         anim.gameObject.SetActive(true);
         normalTime.text = "Time: " + endTime.ToString();
         PlayerPrefs.SetFloat(SceneManager.GetActiveScene().name, Mathf.Min(PlayerPrefs.GetFloat(SceneManager.GetActiveScene().name),endTime));
         bestTime.text = "Best Time: " + PlayerPrefs.GetFloat(SceneManager.GetActiveScene().name).ToString();
+        PlayerPrefs.Save();
     }
 
 
