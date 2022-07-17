@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class EndlessRunnerDelete : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
-        Destroy(collision.gameObject);
+        if(collision.transform.tag != "Player" && collision.transform.tag != "StartingPoint")
+        {
+            Destroy(collision.gameObject);
+        }
     }
 }

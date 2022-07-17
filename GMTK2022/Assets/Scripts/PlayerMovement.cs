@@ -62,7 +62,9 @@ public class PlayerMovement : MonoBehaviour
             inEndless = true;
         }
         else
+        {
             inEndless = false;
+        }
         rb = GetComponent<Rigidbody>();
     }
 
@@ -109,6 +111,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (crouching)
+        {
+            if (inEndless)
+            {
+                rb.AddForce(-transform.up * forceDownGravity * 2f);
+            }
+        }
         if (!inEndless)
         {
             rb.AddForce(-transform.up * forceDownGravity);
@@ -140,7 +149,9 @@ public class PlayerMovement : MonoBehaviour
 
         //Crouching
         if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
             StartCrouch();
+        }
         if (Input.GetKeyUp(KeyCode.LeftShift))
             StopCrouch();
     }
