@@ -2225,6 +2225,8 @@ MonoBehaviour:
   resetPosition: {x: 0, y: 4, z: 0}
   currTime: 0
   timer: {fileID: 697561732}
+  anim: {fileID: 0}
+  gui: {fileID: 0}
 --- !u!114 &1219146802
 MonoBehaviour:
   m_ObjectHideFlags: 0

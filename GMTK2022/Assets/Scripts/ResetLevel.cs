@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using System;
+using UnityEngine.SceneManagement;
 
 public class ResetLevel : MonoBehaviour
 {
@@ -10,6 +10,10 @@ public class ResetLevel : MonoBehaviour
     public Vector3 resetPosition;
     public float currTime = 0f;
     public TextMeshProUGUI timer;
+    
+    [Header("LevelAnim")]
+    public Animator anim;
+    public TextMeshProUGUI gui;
     private void OnTriggerExit(Collider other)
     {
         if(other.transform.tag == "Player")
@@ -24,6 +28,7 @@ public class ResetLevel : MonoBehaviour
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+        gui.text = SceneManager.GetActiveScene().name;
     }
 
     private void FixedUpdate()
@@ -33,5 +38,11 @@ public class ResetLevel : MonoBehaviour
         {
             currTime += Time.deltaTime;
         }
+    }
+
+
+    public void startAnimation()
+    {
+        anim.SetTrigger("StartAnim");
     }
 }
