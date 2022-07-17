@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3322530138667444122}
   m_Layer: 8
   m_Name: JumpDice
-  m_TagString: Ground
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -98,9 +98,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f3228b2cf2b3fd4eb1a34697b0040e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  yaw: 0
-  pitch: 0
-  zRot: 0
+  Startingyaw: 0
+  Startingpitch: 0
+  StartingzRot: 0
   RandomRangeValue: 0.2
 --- !u!1 &8952211218910708502
 GameObject:

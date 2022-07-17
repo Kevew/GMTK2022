@@ -5,7 +5,7 @@ using TMPro;
 
 public class EndlessRunner : MonoBehaviour
 {
-    public GameObject dice;
+    public GameObject[] dice;
     public Transform playerHeight;
     public float generateHeight = 20f;
 
@@ -49,15 +49,21 @@ public class EndlessRunner : MonoBehaviour
     void GenerateObjects(float height)
     {
         List<GameObject> newGameObjects = new List<GameObject>();
-        int i = Random.Range(2, 5);
+        int i = Random.Range(3, 6);
         for(int j = 0;j < i; j++)
         {
+            int randomG = Random.Range(0, 4);
             angle = Random.Range(0f, 1f) * 2f * 3.14f;
             float r = radius * Mathf.Sqrt(Random.Range(0f, 1f));
             float x = Mathf.Cos(angle) * r;
             float y = Mathf.Sin(angle) * r;
             Debug.Log(x  + "  " + y);
-            GameObject a = (GameObject)Instantiate(dice, transform.position + new Vector3(x, height, y), transform.rotation);
+            if(j == 0)
+            {
+                randomG = 0;
+            }
+            GameObject a = (GameObject)Instantiate(dice[randomG], transform.position + new Vector3(x, height, y), transform.rotation);
+            a.GetComponent<DiceRotation>().RandomRangeValue = Random.Range(0f, 1f);
             bool create = true;
             float generatesize = Random.Range(generateSizeMin, generateSizeMax);
             a.transform.localScale = new Vector3(generatesize, generatesize, generatesize);

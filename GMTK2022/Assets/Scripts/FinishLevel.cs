@@ -15,6 +15,7 @@ public class FinishLevel : MonoBehaviour
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             fade.startEnd("LevelSelect");
+            collision.transform.position = GameObject.FindGameObjectWithTag("GameManager").GetComponent<ResetLevel>().resetPosition;
         }
     }
 }

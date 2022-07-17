@@ -20,7 +20,7 @@ public class ResetLevel : MonoBehaviour
         {
             other.transform.position = resetPosition;
             other.gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0f, 0f, 0f);
-            other.gameObject.GetComponent<PlayerMovement>().changeSpeed(5);
+            other.gameObject.GetComponent<PlayerMovement>().changeSpeed(0);
             player.movementStart = false;
             currTime = 0f;
             anim.SetTrigger("StartAnim");
@@ -33,6 +33,7 @@ public class ResetLevel : MonoBehaviour
         GameObject[] rot = GameObject.FindGameObjectsWithTag("Wall");
         foreach (GameObject a in rot)
         {
+            Debug.Log(a.name);
             a.GetComponent<DiceRotation>().resetRot();
         }
     }

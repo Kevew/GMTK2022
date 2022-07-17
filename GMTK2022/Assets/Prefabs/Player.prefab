@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 330478968}
   - component: {fileID: 330478969}
+  - component: {fileID: 2234912578582567236}
   m_Layer: 7
   m_Name: BackGround
   m_TagString: Untagged
@@ -44,7 +45,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.18
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -128,6 +129,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &2234912578582567236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330478967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 29f8578bb0c78d34dabfd60514ccebc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shuffle:
+  - {fileID: 8300000, guid: c919ada641ea13043885afd9bfd2758e, type: 3}
 --- !u!1 &5822977012002058341
 GameObject:
   m_ObjectHideFlags: 0
@@ -5165,8 +5180,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCam: {fileID: 0}
   orientation: {fileID: 5822977013331880470}
-  moveSpeed: 4500
-  maxSpeed: 20
+  jumpDelay: 10
+  moveSpeed: 4000
+  maxSpeed: 15
   grounded: 0
   whatIsGround:
     serializedVersion: 2
@@ -5178,12 +5194,19 @@ MonoBehaviour:
   jumpForce: 700
   jumpSystem: {fileID: 5822977012002058343}
   speedList:
-  - 2000
-  - 2500
-  - 3000
   - 4000
-  - 4500
   - 5000
+  - 6000
+  - 7000
+  - 8000
+  - 9000
+  maxspeedList:
+  - 10
+  - 15
+  - 17
+  - 19
+  - 20
+  - 25
   jumpList:
   - 700
   - 800
@@ -5192,6 +5215,7 @@ MonoBehaviour:
   - 1100
   - 1200
   forceDownGravity: 37
+  mini: {fileID: 0}
   movementStart: 0
 --- !u!114 &5822977013102820701
 MonoBehaviour:

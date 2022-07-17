@@ -52,6 +52,7 @@ public class PlayerMovement : MonoBehaviour
     public ParticleSystem jumpSystem;
 
     public List<float> speedList;
+    public List<float> maxspeedList;
     public List<float> jumpList;
 
     bool inEndless;
@@ -90,7 +91,11 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine(speedup(70f, 80f));
         }
         moveSpeed = speedList[changeValue];
-        mini.newSpeed(changeValue);
+        maxSpeed = maxspeedList[changeValue];
+        if (!inEndless)
+        {
+            mini.newSpeed(changeValue);
+        }
     }
 
     public void changeJump(int changeValue)
@@ -103,8 +108,11 @@ public class PlayerMovement : MonoBehaviour
         {
             StartCoroutine(speedup(70f, 80f));
         }
+        if (inEndless)
+        {
+            mini.newSpeed(changeValue);
+        }
         jumpForce = jumpList[changeValue];
-        mini.newSpeed(changeValue);
     }
 
     private IEnumerator speedup(float speedone, float speedtwo)
