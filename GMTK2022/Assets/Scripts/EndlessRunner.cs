@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class EndlessRunner : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class EndlessRunner : MonoBehaviour
 
     public float radius;
     float angle;
+
+    public TextMeshProUGUI textGUI;
+    public float highest = 0;
 
     private void Start()
     {
@@ -22,6 +26,15 @@ public class EndlessRunner : MonoBehaviour
         {
             GenerateObjects(generateHeight);
             generateHeight += Random.Range(13f, 20f);
+        }
+    }
+
+    public void newHighest(float _high)
+    {
+        if(_high > highest)
+        {
+            highest = _high;
+            textGUI.text = Mathf.Round(highest).ToString();
         }
     }
 

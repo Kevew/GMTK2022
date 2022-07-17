@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DiceCheckJump : MonoBehaviour
 {
@@ -15,12 +16,21 @@ public class DiceCheckJump : MonoBehaviour
     public float intensity = 2f;
     public float maxIntensity = 25f;
 
+    bool isEndless;
 
     public Transform parentGameObject;
 
     Color normalColor;
     private void Start()
     {
+        if(SceneManager.GetActiveScene().name == "Endless")
+        {
+            isEndless = true;
+        }
+        else
+        {
+            isEndless = false;
+        }
         shaderMat = GetComponent<MeshRenderer>().material;
         scale = parentGameObject.localScale.x/2;
         normalColor = shaderMat.GetColor("_ColorValue");
@@ -52,6 +62,10 @@ public class DiceCheckJump : MonoBehaviour
     {
         if(collision.transform.tag == "Player")
         {
+            if (isEndless)
+            {
+                GameObject.FindGameObjectWithTag("GameManager").GetComponent<EndlessRunner>().newHighest(transform.position.y);
+            }
             pS.Play();
             Vector3 globalpos = collision.contacts[0].point;
             List<Vector3> checkPos = new List<Vector3>();
