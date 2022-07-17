@@ -10,8 +10,29 @@ public class LevelSelector : MonoBehaviour
     public Button[] levelButtons;
     public TextMeshProUGUI[] textButtons;
 
+    public TextMeshProUGUI recent;
+    public TextMeshProUGUI best;
+
     private void Start()
     {
+        float recentTemp = PlayerPrefs.GetFloat("recentEndless", 999999999f);
+        float bestTemp = PlayerPrefs.GetFloat("bestEndless", 999999999f);
+        if(recentTemp == 999999999f)
+        {
+            recent.text = "Recent: N/A";
+        }
+        else
+        {
+            recent.text = "Recent: " + recentTemp.ToString();
+        }
+        if(bestTemp == 999999999f)
+        {
+            best.text = "Best: N/A";
+        }
+        else
+        {
+            best.text = "Best: " + bestTemp.ToString();
+        }
         int LevelReached = PlayerPrefs.GetInt("levelReached", 1);
         for(int i = 0;i < levelButtons.Length; i++)
         {

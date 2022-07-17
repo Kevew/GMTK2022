@@ -65,6 +65,7 @@ public class DiceCheckJump : MonoBehaviour
             if (isEndless)
             {
                 GameObject.FindGameObjectWithTag("GameManager").GetComponent<EndlessRunner>().newHighest(transform.position.y);
+                gameObject.GetComponentInParent<DiceRotation>().RandomRangeValue += 1;
             }
             pS.Play();
             Vector3 globalpos = collision.contacts[0].point;

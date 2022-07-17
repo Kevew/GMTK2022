@@ -12,6 +12,9 @@ public class EndlessRunner : MonoBehaviour
     public float radius;
     float angle;
 
+    public float generateSizeMin;
+    public float generateSizeMax;
+
     public TextMeshProUGUI textGUI;
     public float highest = 0;
 
@@ -27,6 +30,11 @@ public class EndlessRunner : MonoBehaviour
             GenerateObjects(generateHeight);
             generateHeight += Random.Range(13f, 20f);
         }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
     }
 
     public void newHighest(float _high)
@@ -41,7 +49,7 @@ public class EndlessRunner : MonoBehaviour
     void GenerateObjects(float height)
     {
         List<GameObject> newGameObjects = new List<GameObject>();
-        int i = Random.Range(2, 3);
+        int i = Random.Range(2, 5);
         for(int j = 0;j < i; j++)
         {
             angle = Random.Range(0f, 1f) * 2f * 3.14f;
@@ -51,6 +59,8 @@ public class EndlessRunner : MonoBehaviour
             Debug.Log(x  + "  " + y);
             GameObject a = (GameObject)Instantiate(dice, transform.position + new Vector3(x, height, y), transform.rotation);
             bool create = true;
+            float generatesize = Random.Range(generateSizeMin, generateSizeMax);
+            a.transform.localScale = new Vector3(generatesize, generatesize, generatesize);
             foreach(GameObject b in newGameObjects)
             {
                 if (Vector3.Distance(b.transform.position, a.transform.position) <= 4f)

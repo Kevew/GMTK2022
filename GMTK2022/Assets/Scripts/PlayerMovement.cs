@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
     public Transform playerCam;
     public Transform orientation;
 
+    public float jumpDelay;
+
     //Other
     private Rigidbody rb;
 
@@ -356,11 +358,10 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //Invoke ground/wall cancel, since we can't check normals with CollisionExit
-        float delay = 3f;
         if (!cancellingGrounded)
         {
             cancellingGrounded = true;
-            Invoke(nameof(StopGrounded), Time.deltaTime * delay);
+            Invoke(nameof(StopGrounded), Time.deltaTime * jumpDelay);
         }
     }
 

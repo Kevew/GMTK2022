@@ -23,6 +23,7 @@ public class ResetLevel : MonoBehaviour
             other.gameObject.GetComponent<PlayerMovement>().changeSpeed(5);
             player.movementStart = false;
             currTime = 0f;
+            anim.SetTrigger("StartAnim");
         }
     }
 
@@ -30,6 +31,7 @@ public class ResetLevel : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
         gui.text = SceneManager.GetActiveScene().name;
+        anim.SetTrigger("StartAnim");
     }
 
     private void FixedUpdate()
@@ -39,11 +41,5 @@ public class ResetLevel : MonoBehaviour
         {
             currTime += Time.deltaTime;
         }
-    }
-
-
-    public void startAnimation()
-    {
-        anim.SetTrigger("StartAnim");
     }
 }
