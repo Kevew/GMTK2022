@@ -8,6 +8,11 @@ public class MiniMapDIce : MonoBehaviour
 
     public int currentSpeed;
 
+    public void newSpeed(int a)
+    {
+        currentSpeed = a;
+    }
+
     void Start()
     {
         dir.Add(new Vector3(-90f, -90f, 0f));

@@ -55,6 +55,8 @@ public class PlayerMovement : MonoBehaviour
     bool inEndless;
     public float forceDownGravity;
 
+    public MiniMapDIce mini;
+
     void Awake()
     {
         if (SceneManager.GetActiveScene().name == "Endless")
@@ -86,6 +88,7 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine(speedup(70f, 80f));
         }
         moveSpeed = speedList[changeValue];
+        mini.newSpeed(changeValue);
     }
 
     public void changeJump(int changeValue)
@@ -99,6 +102,7 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine(speedup(70f, 80f));
         }
         jumpForce = jumpList[changeValue];
+        mini.newSpeed(changeValue);
     }
 
     private IEnumerator speedup(float speedone, float speedtwo)
