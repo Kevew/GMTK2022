@@ -20,6 +20,7 @@ public class ResetLevel : MonoBehaviour
         {
             other.transform.position = resetPosition;
             other.gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0f, 0f, 0f);
+            other.gameObject.GetComponent<PlayerMovement>().changeSpeed(5);
             player.movementStart = false;
             currTime = 0f;
         }
