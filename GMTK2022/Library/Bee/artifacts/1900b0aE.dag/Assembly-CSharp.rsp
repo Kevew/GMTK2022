@@ -368,6 +368,7 @@
 "Assets/Scripts/AudioManager.cs"
 "Assets/Scripts/CameraMovement.cs"
 "Assets/Scripts/DiceCheck.cs"
+"Assets/Scripts/DiceCheckJump.cs"
 "Assets/Scripts/DiceRotation.cs"
 "Assets/Scripts/EndlessRunner.cs"
 "Assets/Scripts/EndlessRunnerDelete.cs"

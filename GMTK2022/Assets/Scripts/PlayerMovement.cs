@@ -50,6 +50,7 @@ public class PlayerMovement : MonoBehaviour
     public ParticleSystem jumpSystem;
 
     public List<float> speedList;
+    public List<float> jumpList;
 
     bool inEndless;
     public float forceDownGravity;
@@ -83,6 +84,19 @@ public class PlayerMovement : MonoBehaviour
             StartCoroutine(speedup(70f, 80f));
         }
         moveSpeed = speedList[changeValue];
+    }
+
+    public void changeJump(int changeValue)
+    {
+        if (jumpList[changeValue] > jumpForce)
+        {
+            StartCoroutine(speedup(90f, 80f));
+        }
+        else if (jumpList[changeValue] > jumpForce)
+        {
+            StartCoroutine(speedup(70f, 80f));
+        }
+        jumpForce = jumpList[changeValue];
     }
 
     private IEnumerator speedup(float speedone, float speedtwo)
