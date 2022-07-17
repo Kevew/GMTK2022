@@ -369,6 +369,8 @@
 "Assets/Scripts/CameraMovement.cs"
 "Assets/Scripts/DiceCheck.cs"
 "Assets/Scripts/DiceRotation.cs"
+"Assets/Scripts/EndlessRunner.cs"
+"Assets/Scripts/EndlessRunnerDelete.cs"
 "Assets/Scripts/FadeIn.cs"
 "Assets/Scripts/FinishLevel.cs"
 "Assets/Scripts/LevelSelector.cs"

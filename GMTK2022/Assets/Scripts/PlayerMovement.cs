@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class PlayerMovement : MonoBehaviour
 {
 
@@ -51,8 +51,17 @@ public class PlayerMovement : MonoBehaviour
 
     public List<float> speedList;
 
+    bool inEndless;
+    public float forceDownGravity;
+
     void Awake()
     {
+        if (SceneManager.GetActiveScene().name == "Endless")
+        {
+            inEndless = true;
+        }
+        else
+            inEndless = false;
         rb = GetComponent<Rigidbody>();
     }
 
@@ -86,6 +95,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!inEndless)
+        {
+            rb.AddForce(-transform.up * forceDownGravity);
+        }
         Movement();
     }
 

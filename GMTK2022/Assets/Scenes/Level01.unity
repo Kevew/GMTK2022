@@ -3363,6 +3363,11 @@ PrefabInstance:
       propertyPath: playerCam
       value: 
       objectReference: {fileID: 1838427561}
+    - target: {fileID: 5822977013102820690, guid: e48b080e962f1554b97a3df97310e238,
+        type: 3}
+      propertyPath: forceDownGravity
+      value: 37
+      objectReference: {fileID: 0}
     - target: {fileID: 5822977013102820692, guid: e48b080e962f1554b97a3df97310e238,
         type: 3}
       propertyPath: m_Name

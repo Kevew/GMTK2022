@@ -44,4 +44,9 @@ public class LevelSelector : MonoBehaviour
     {
         SceneManager.LoadScene(levelSelect);
     }
+
+    public void PlayEndless()
+    {
+        SceneManager.LoadScene("Endless");
+    }
 }
