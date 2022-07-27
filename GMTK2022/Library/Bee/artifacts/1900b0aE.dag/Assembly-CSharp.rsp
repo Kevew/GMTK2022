@@ -382,6 +382,7 @@
 "Assets/Scripts/PlayerMovementTwoCode.cs"
 "Assets/Scripts/ResetLevel.cs"
 "Assets/Scripts/WallRunning.cs"
+"Assets/SFX.cs"
 "Assets/TutorialInfo/Scripts/Readme.cs"
 -langversion:9.0
 

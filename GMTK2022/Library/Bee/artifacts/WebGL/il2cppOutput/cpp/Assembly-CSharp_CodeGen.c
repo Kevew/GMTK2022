@@ -220,11 +220,17 @@ extern void WallRunning_DoFov_m26DB5D2ED6A7C371D53B3464C6CEC9C74547E153 (void);
 extern void WallRunning_DoTilt_mA52E4ED3564E8A04A77A6F3CDD5D62BF904586BC (void);
 // 0x00000068 System.Void WallRunning::.ctor()
 extern void WallRunning__ctor_m64C0B5A1773662FF4E227D16EFAB03E41541A6DF (void);
-// 0x00000069 System.Void Readme::.ctor()
+// 0x00000069 System.Void SFX::Start()
+extern void SFX_Start_m3D17023F6348252BC07321A77AF4425DAC603023 (void);
+// 0x0000006A System.Void SFX::Update()
+extern void SFX_Update_m01C51EF177AB9C6AFE8C812A475E02EC372415AB (void);
+// 0x0000006B System.Void SFX::.ctor()
+extern void SFX__ctor_mFE6961E141CC3F7834CFC77A205A0EEF462EB72F (void);
+// 0x0000006C System.Void Readme::.ctor()
 extern void Readme__ctor_m69C325C4C171DCB0312B646A9034AA91EA8C39C6 (void);
-// 0x0000006A System.Void Readme/Section::.ctor()
+// 0x0000006D System.Void Readme/Section::.ctor()
 extern void Section__ctor_m5F732533E4DFC0167D965E5F5DB332E46055399B (void);
-static Il2CppMethodPointer s_methodPointers[106] = 
+static Il2CppMethodPointer s_methodPointers[109] = 
 {
 	AudioManager_Start_m3C0FEAF19F58B6D28A9E6D815B3AAF94FEA21B69,
 	AudioManager_Update_m7DF7834692993676DCBBECA42E396F7A4E623A43,
@@ -330,10 +336,13 @@ static Il2CppMethodPointer s_methodPointers[106] =
 	WallRunning_DoFov_m26DB5D2ED6A7C371D53B3464C6CEC9C74547E153,
 	WallRunning_DoTilt_mA52E4ED3564E8A04A77A6F3CDD5D62BF904586BC,
 	WallRunning__ctor_m64C0B5A1773662FF4E227D16EFAB03E41541A6DF,
+	SFX_Start_m3D17023F6348252BC07321A77AF4425DAC603023,
+	SFX_Update_m01C51EF177AB9C6AFE8C812A475E02EC372415AB,
+	SFX__ctor_mFE6961E141CC3F7834CFC77A205A0EEF462EB72F,
 	Readme__ctor_m69C325C4C171DCB0312B646A9034AA91EA8C39C6,
 	Section__ctor_m5F732533E4DFC0167D965E5F5DB332E46055399B,
 };
-static const int32_t s_InvokerIndices[106] = 
+static const int32_t s_InvokerIndices[109] = 
 {
 	5654,
 	5654,
@@ -441,12 +450,15 @@ static const int32_t s_InvokerIndices[106] =
 	5654,
 	5654,
 	5654,
+	5654,
+	5654,
+	5654,
 };
 IL2CPP_EXTERN_C const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule;
 const Il2CppCodeGenModule g_AssemblyU2DCSharp_CodeGenModule = 
 {
 	"Assembly-CSharp.dll",
-	106,
+	109,
 	s_methodPointers,
 	0,
 	NULL,

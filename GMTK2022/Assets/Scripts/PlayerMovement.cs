@@ -346,6 +346,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool cancellingGrounded;
 
+    public AudioSource source;
     /// <summary>
     /// Handle ground detection
     /// </summary>
@@ -362,6 +363,10 @@ public class PlayerMovement : MonoBehaviour
             //FLOOR
             if (IsFloor(normal))
             {
+                if (grounded == false)
+                {
+                    source.Play();
+                }
                 grounded = true;
                 cancellingGrounded = false;
                 normalVector = normal;
